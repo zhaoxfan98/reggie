@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: reggie
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?characterEncoding=UTF-8
+      username: root
+      password: 301421
+  mail:
+    host: smtp.163.com  # 发送邮件的服务器地址
+    username: zhaoxfan98@163.com # 登录163邮箱的账号
+    password:   # 开启 IMAP/SMTP服务 获得的授权码,而不是163邮箱的登录密码
+    default-encoding: UTF-8
+  redis:
+    host: localhost # 本地IP 或是 虚拟机IP
+    port: 6379
+    database: 0  # 默认使用 0号db
+    cache:
+      redis:
+        time-to-live: 1800000  # 设置缓存数据的过期时间，30分钟
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+upload:
+  filePath: F:\IDEAProjects\reggie\project_images
